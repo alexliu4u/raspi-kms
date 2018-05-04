@@ -9,7 +9,7 @@ RUN apt-get update \
     && git clone https://github.com/alexliu4u/vlmcsd.git \
     && cp /var/local/vlmcsd/binaries/Linux/arm/little-endian/glibc/vlmcsd-armv6hf-Raspberry-glibc /var/local/kms/vlmcsdpi \
     && chmod 777 /var/local/vlmcsdpi \
-    && rm -rf /var/local/vlmcsd
+    && rm -rf /var/local/vlmcsd \
     && cd /var/log \
     && mkdir vlmcsd \
     && apt-get clean
