@@ -1,9 +1,9 @@
 FROM resin/rpi-raspbian:latest
 MAINTAINER alexliu4u <alexliu4u@hotmail.com>
-
-RUN sudo apt-get update
+ENV DEBIAN_FRONTEND noninteractive
+RUN sudo apt-get update -y
 RUN sudo apt-get dist-upgrade
-RUN sudo apt-get install -y git
+RUN sudo apt-get install git -y
 RUN sudo cd /var/local
 RUN sudo git clone https://github.com/alexliu4u/vlmcsd.git
 RUN sudo cd /var/log
