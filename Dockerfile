@@ -1,7 +1,7 @@
 FROM resin/rpi-raspbian:latest
 MAINTAINER alexliu4u <alexliu4u@hotmail.com>
 
-RUN   apt-get update && apt-get install -y git \
+RUN   apt-get update && apt-get install -y git apt-utils \
        && cd /var/local \
        && mkdir kms \
        && git clone https://github.com/alexliu4u/vlmcsd.git \
