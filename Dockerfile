@@ -1,7 +1,6 @@
-FROM resin/rpi-raspbian
+FROM resin/rpi-raspbian:jessie
 MAINTAINER alexliu4u <alexliu4u@hotmail.com>
 
-RUN apt-get update -y
 RUN apt-get dist-upgrade
 RUN apt-get install git -y
 RUN cd /var/local
