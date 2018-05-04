@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y git --no-install-recommends apt-utils \
 RUN chmod 777 /var/local/kms/vlmcsdpi \
     && rm -rf /var/local/vlmcsd/*
 
-WORKDIR /var/local/kms
+WORKDIR /var/local/kms/log
 
 EXPOSE 1688
-ENTRYPOINT ["/var/local/kms/vlmcsdpi","-l","/var/local/kms/vlmcsdpi.log"]
+ENTRYPOINT ["/var/local/kms/vlmcsdpi","-l","/var/local/kms/log/vlmcsdpi.log"]
