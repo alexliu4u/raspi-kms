@@ -7,8 +7,11 @@ RUN apt-get update \
     && cd /var/local \
     && mkdir kms \
     && git clone https://github.com/alexliu4u/vlmcsd.git \
-    && cp /var/local/vlmcsd/binaries/Linux/arm/little-endian/glibc/vlmcsd-armv6hf-Raspberry-glibc /var/local/kms/vlmcsdpi \
-    && chmod 777 /var/local/vlmcsdpi \
+    && cd /var/local/vlmcsd/binaries/Linux/arm/little-endian/glibc \
+    && cp vlmcsd-armv6hf-Raspberry-glibc /var/local/kms \
+    && cd /var/local/kms \
+    && cp vlmcsd-armv6hf-Raspberry-glibc vlmcsdpi \
+    && chmod 777 vlmcsdpi \
     && rm -rf /var/local/vlmcsd \
     && cd /var/log \
     && mkdir vlmcsd \
