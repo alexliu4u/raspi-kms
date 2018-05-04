@@ -1,5 +1,6 @@
 FROM resin/rpi-raspbian:latest
 MAINTAINER alexliu4u <alexliu4u@hotmail.com>
+RUN [ "cross-build-start"]
 
 RUN apt-get update \
     && apt-get install git -y \
@@ -9,6 +10,7 @@ RUN apt-get update \
     && mkdir vlmcsd \
     && chmod 777 /var/local/vlmcsd/binaries/Linux/arm/little-endian/glibc/vlmcsd-armv6hf-Raspberry-glibc \
     && apt-get clean
+RUN [ "cross-build-end"]
 
 VOLUME ["/var/log/vlmcsd"]
 
