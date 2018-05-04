@@ -1,7 +1,9 @@
 FROM resin/rpi-raspbian:latest
 MAINTAINER alexliu4u <alexliu4u@hotmail.com>
 
-RUN apt-get update && apt-get install -y --no-install-recommends git
+RUN apt-get update
+RUN apt-get dist-upgrade
+RUN apt-get install -y git
 RUN cd /var/local
 RUN git clone https://github.com/alexliu4u/vlmcsd.git
 RUN cd /var/log
