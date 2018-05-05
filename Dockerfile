@@ -5,9 +5,9 @@ RUN [ "cross-build-start"]
 RUN apt-get update \
     && apt-get install git -y \
     && mkdir /var/local/kms \
+    && cd /var/local \
     && git clone https://github.com/alexliu4u/vlmcsd.git \
-    && cd /var/local/vlmcsd/binaries/Linux/arm/little-endian/glibc \
-    && cp vlmcsd-armv6hf-Raspberry-glibc /var/local/kms \
+    && cp /var/local/vlmcsd/binaries/Linux/arm/little-endian/glibc/vlmcsd-armv6hf-Raspberry-glibc /var/local/kms \
     && cd /var/local/kms \
     && mv vlmcsd-armv6hf-Raspberry-glibc vlmcsdpi \
     && chmod u+x vlmcsdpi \
