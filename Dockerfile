@@ -1,5 +1,5 @@
 FROM resin/rpi-raspbian:latest
-MAINTAINER alexliu4u <alexliu4u@hotmail.com>
+MAINTAINER elarkasi <elarkasi@gmail.com>
 
 RUN [ "cross-build-start"]
 RUN apt-get update \
