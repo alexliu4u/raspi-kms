@@ -1,4 +1,4 @@
-FROM resin/rpi-raspbian:latest
+FROM balenalib/raspberrypi4-64-ubuntu:latest
 MAINTAINER elarkasi <elarkasi@gmail.com>
 
 RUN [ "cross-build-start"]
