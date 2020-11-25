@@ -1,9 +1,9 @@
-FROM balenalib/raspberrypi4-64-ubuntu:latest
+FROM alpine:latest
 MAINTAINER elarkasi <elarkasi@gmail.com>
 
 RUN [ "cross-build-start"]
-RUN apt-get update \
-    && apt-get install git -y \
+RUN apk update \
+    && apk add git -y \
     && mkdir /var/local/kms \
     && cd /var/local \
     && git clone https://github.com/elarkasi/vlmcsd.git \
