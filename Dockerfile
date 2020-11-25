@@ -1,7 +1,7 @@
 FROM alpine:latest
 MAINTAINER elarkasi <elarkasi@gmail.com>
 
-RUN [ "cross-build-start"]
+# RUN [ "cross-build-start"]
 RUN apk update \
     && apk add git -y \
     && mkdir /var/local/kms \
@@ -12,6 +12,6 @@ RUN apk update \
     && mv vlmcsd-armv6hf-Raspberry-glibc vlmcsdpi \
     && chmod u+x vlmcsdpi \
     && rm -rf /var/local/vlmcsd
-RUN [ "cross-build-end"]
+# RUN [ "cross-build-end"]
 EXPOSE 1688
 ENTRYPOINT ["/var/local/kms/vlmcsdpi","-D"]
