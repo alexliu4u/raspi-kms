@@ -1,4 +1,5 @@
-FROM balenalib/raspberrypi4-64-alpine:latest
+# FROM balenalib/raspberrypi4-64-alpine:latest
+FROM alpine:latest
 MAINTAINER elarkasi <elarkasi@gmail.com>
 
 RUN [ "cross-build-start"]
