@@ -11,8 +11,7 @@ RUN apk update \
     && cd /var/local/kms \
     && mv vlmcsd-armv6hf-Raspberry-glibc vlmcsdpi \
     && chmod u+x vlmcsdpi \
-    && rm -rf /var/local/vlmcsd \
-    && apt-get clean
+    && rm -rf /var/local/vlmcsd
 RUN [ "cross-build-end"]
 EXPOSE 1688
 ENTRYPOINT ["/var/local/kms/vlmcsdpi","-D"]
