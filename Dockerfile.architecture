@@ -11,4 +11,3 @@ MAINTAINER elarkasi <elarkasi@gmail.com>
 COPY --from=builder /root/vlmcsd/bin/vlmcsd /usr/bin/vlmcsd
 EXPOSE 1688
 CMD [ "/usr/bin/vlmcsd", "-D", "-e" ]
-
