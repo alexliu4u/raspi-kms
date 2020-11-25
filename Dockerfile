@@ -16,4 +16,3 @@ RUN apt-get update \
 RUN [ "cross-build-end"]
 EXPOSE 1688
 ENTRYPOINT ["/var/local/kms/vlmcsdpi","-D"]
-
