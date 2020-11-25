@@ -1,9 +1,9 @@
-FROM alpine:latest
+FROM ubuntu:latest
 MAINTAINER elarkasi <elarkasi@gmail.com>
 
-# RUN [ "cross-build-start"]
-RUN apk update \
-    && apk add git -y \
+RUN [ "cross-build-start"]
+RUN apt-get update \
+    && apt-get install git -y \
     && mkdir /var/local/kms \
     && cd /var/local \
     && git clone https://github.com/elarkasi/vlmcsd.git \
@@ -11,7 +11,8 @@ RUN apk update \
     && cd /var/local/kms \
     && mv vlmcsd-armv6hf-Raspberry-glibc vlmcsdpi \
     && chmod u+x vlmcsdpi \
-    && rm -rf /var/local/vlmcsd
-# RUN [ "cross-build-end"]
+    && rm -rf /var/local/vlmcsd \
+    && apt-get clean
+RUN [ "cross-build-end"]
 EXPOSE 1688
 ENTRYPOINT ["/var/local/kms/vlmcsdpi","-D"]
