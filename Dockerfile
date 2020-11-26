@@ -1,11 +1,11 @@
-FROM --platform=linux/arm64 alpine:latest AS builder
+FROM multiarch/alpine:armhf-edge AS builder
 WORKDIR /root
 RUN apk add --no-cache git make build-base && \
     git clone --branch master --single-branch https://github.com/Wind4/vlmcsd.git && \
     cd vlmcsd/ && \
     make
 
-FROM --platform=linux/arm64 alpine:latest
+FROM multiarch/alpine:armhf-edge
 MAINTAINER elarkasi <elarkasi@gmail.com>
 
 COPY --from=builder /root/vlmcsd/bin/vlmcsd /usr/bin/vlmcsd
