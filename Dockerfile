@@ -1,4 +1,4 @@
-FROM multiarch/alpine:aarch64-edge
+FROM multiarch/alpine:armhf-edge
 MAINTAINER elarkasi <elarkasi@gmail.com>
 
 RUN [ "cross-build-start"]
