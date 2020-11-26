@@ -6,7 +6,7 @@ RUN apk update \
     && apk add git -y \
     && mkdir /var/local/kms \
     && cd /var/local \
-    && git clone https://github.com/elarkasi/vlmcsd.git \
+    && git clone https://github.com/kkkgo/vlmcsd.git \
     && cp /var/local/vlmcsd/binaries/Linux/arm/little-endian/glibc/vlmcsd-armv6hf-Raspberry-glibc /var/local/kms \
     && cd /var/local/kms \
     && mv vlmcsd-armv6hf-Raspberry-glibc vlmcsdpi \
