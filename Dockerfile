@@ -1,17 +1,13 @@
-FROM multiarch/alpine:armhf-edge
+FROM --platform=linux/arm64 alpine:latest AS builder
+WORKDIR /root
+RUN apk add --no-cache git make build-base && \
+    git clone --branch master --single-branch https://github.com/Wind4/vlmcsd.git && \
+    cd vlmcsd/ && \
+    make
+
+FROM --platform=linux/arm64 alpine:latest
 MAINTAINER elarkasi <elarkasi@gmail.com>
 
-RUN [ "cross-build-start"]
-RUN apk update \
-    && apk add git -y \
-    && mkdir /var/local/kms \
-    && cd /var/local \
-    && git clone https://github.com/kkkgo/vlmcsd.git \
-    && cp /var/local/vlmcsd/binaries/Linux/arm/little-endian/glibc/vlmcsd-armv6hf-Raspberry-glibc /var/local/kms \
-    && cd /var/local/kms \
-    && mv vlmcsd-armv6hf-Raspberry-glibc vlmcsdpi \
-    && chmod u+x vlmcsdpi \
-    && rm -rf /var/local/vlmcsd
-RUN [ "cross-build-end"]
+COPY --from=builder /root/vlmcsd/bin/vlmcsd /usr/bin/vlmcsd
 EXPOSE 1688
-ENTRYPOINT ["/var/local/kms/vlmcsdpi","-D"]
+CMD [ "/usr/bin/vlmcsd", "-D", "-e" ]
